@@ -7,7 +7,7 @@
     <title>MiniChat</title>
 </head>
 <body class="container">
-    <h1 class="mt-5">MiniChat</h1>
+    <!-- <h1 class="mt-5">MiniChat</h1>
     <hr>
 
     <form id="miFormulario">
@@ -28,11 +28,14 @@
             <ul id="misMensajes" class="mt-2">
             </ul>
         </div>
-    </div>
+    </div> -->
+
+    <h1 class="mt-5">Acceso denegado</h1>
+    <hr>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js" integrity="sha512-vGcPDqyonHb0c11UofnOKdSAt5zYRpKI4ow+v6hat4i96b7nHSn8PQyk0sT5L9RECyksp+SztCPP6bqeeGaRKg==" crossorigin="anonymous"></script>
 
-    <script>
+    <!-- <script>
         const socket = io('https://socket-server-jm.herokuapp.com/');
 
         // Referencias al html
@@ -53,23 +56,24 @@
         socket.on('mensaje-from-server', data => {
             console.log(data);
             mensajes.innerHTML += `<li>${data.texto}</li>`;
-        })
+        });
         
-        // socket.on('mensaje-bienvenida', (data) => {
-        //     console.log(data);
-        // });
+    </script> -->
 
-        /*setTimeout(()=>{
-            // Emitir un evento
-            // mensaje-cliente
-            // {msg: 'cliente', nombre: 'Jorge'} 
-            
-            socket.emit('mensaje-cliente', {
-                msg: 'cliente', 
-                nombre: 'Jorge' 
-            });
-        },2000);*/
-        
+    <script>
+        // Conexión con el socket server
+        const socket = io('http://localhost:4000');
+
+
+        /// Para emitir
+        // socket.emit('mensaje-to-server', { data });
+
+        // Para escuchar
+        socket.on('mensaje-from-server', (data) => {
+            // callback a ejecutar
+        });
+
+
     </script>
 </body>
 </html>
